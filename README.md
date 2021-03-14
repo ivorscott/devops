@@ -1,10 +1,12 @@
 # devops training
 
 table of contents
-- aws
-- terraform
-- gitops and kubernetes
-  
+- [aws](#aws)
+- [terraform](#terraform)
+- [gitops and kubernetes](#gitops-and-kubernetes)
+- [traefik](#traefik)
+- [books](#books)
+
 ## aws
 
 ### references
@@ -17,6 +19,10 @@ table of contents
     - [mac, linux, windows, and docker](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 - [aws ec2 instance types](https://aws.amazon.com/ec2/instance-types/)
 - [aws autoscaling groups -  terraform docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group)
+- [aws containers roadmap](https://github.com/aws/containers-roadmap/projects/1)
+- [aws ecs vs. eks](https://skyscrapers.eu/insights/ecs-vs-eks)
+- [aws eks terraform example](https://github.com/hashicorp/terraform-provider-kubernetes/tree/master/_examples/eks)
+- [aws eks, gitops, codefresh and terraform tutorial ](https://codefresh.io/continuous-deployment/applying-gitops-continuous-delivery-cd-infrastructure-using-terraform-codefresh-aws-elastic-kubernetes-service-eks/)
 
 ## terraform
 
@@ -112,9 +118,13 @@ output "address" {
 - print outputs after using _terraform apply_
     - `terraform output`
     - `terraform output <output_name>`
-- [resource behavior](https://www.terraform.io/docs/language/resources/behavior.html)
+- [resource behavior - terraform docs](https://www.terraform.io/docs/language/resources/behavior.html)
 - [lifecycle meta arguments - terraform docs](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html)
-    
+
+## gitops and kubernetes
+
+## traefik
+
 ## books
 
 - terraform: up and running - o'reilly - yevgeniy brikman
