@@ -16,8 +16,90 @@ table of contents
     - homebrew: `brew install awscli`
     - [mac, linux, windows, and docker](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 - [aws ec2 instance types](https://aws.amazon.com/ec2/instance-types/)
+- [aws autoscaling groups -  terraform docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group)
 
 ## terraform
+
+### variables
+
+two types of variables: _output and input variables_
+
+#### input variables
+
+- __def:__ _input variables serve as parameters for your terraform code._
+
+[input variables - terraform docs](https://www.terraform.io/docs/configuration-0-11/variables.html)
+
+<details>
+<summary>example</summary>
+<br>
+
+```terraform
+
+variable "number_example" {
+  description = "An example of a number variable in Terraform"
+  type        = number
+  default     = 42
+}
+
+variable "list_example" {
+  description = "An example of a list in Terraform"
+  type        = list
+  default     = ["a", "b", "c"]
+}
+
+variable "list_numeric_example" {
+  description = "An example of a numeric list in Terraform"
+  type        = list(number)
+  default     = [1, 2, 3]
+}
+
+variable "map_example" {
+  description = "An example of a map in Terraform"
+  type        = map(string)
+
+  default = {
+    key1 = "value1"
+    key2 = "value2"
+    key3 = "value3"
+  }
+}
+
+variable "object_example" {
+  description = "An example of a structural type in Terraform"
+  type        = object({
+    name    = string
+    age     = number
+    tags    = list(string)
+    enabled = bool
+  })
+
+  default = {
+    name    = "value1"
+    age     = 42
+    tags    = ["a", "b", "c"]
+    enabled = true
+  }
+}
+```
+</details>
+
+#### output variables (aka output values)
+
+- __def:__ _outputs define values that will be highlighted to the user when terraform applies. outputs are an easy way to extract attributes from created resources._
+
+[output values - terraform docs](https://www.terraform.io/docs/configuration-0-11/outputs.html)
+
+<details>
+<summary>example</summary>
+<br>
+
+```terraform
+output "address" {
+  value = "${aws_instance.db.public_dns}"
+}
+```
+</details>
 
 ### references
 - initialize folder + pull code from relevant providers `terraform init`
@@ -27,3 +109,15 @@ table of contents
 - revert config `terraform destroy`
 - print dependency tree `terraform graph`
     - graphviz online [dependency example](https://bit.ly/3tim0IE)
+- print outputs after using _terraform apply_
+    - `terraform output`
+    - `terraform output <output_name>`
+- [resource behavior](https://www.terraform.io/docs/language/resources/behavior.html)
+- [lifecycle meta arguments - terraform docs](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html)
+    
+## books
+
+- terraform: up and running - o'reilly - yevgeniy brikman
+- gitops and kubernetes - manning - yuen, matyushentsev, ekenstam, suen
+- traefik api gateway for microservices - apress - sharma, mathur
+- amazon web services in action - manning - michael & andreas wittig
