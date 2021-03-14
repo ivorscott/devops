@@ -16,3 +16,14 @@ table of contents
     - homebrew: `brew install awscli`
     - [mac, linux, windows, and docker](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 - [aws ec2 instance types](https://aws.amazon.com/ec2/instance-types/)
+
+## terraform
+
+### references
+- initialize folder + pull code from relevant providers `terraform init`
+- see what will happen before making changes `terraform plan`
+  - preview what will be destroyed `terraform plan -destroy`
+- apply changes `terraform apply`
+- revert config `terraform destroy`
+- print dependency tree `terraform graph`
+    - graphviz online [dependency example](https://bit.ly/3tim0IE)
