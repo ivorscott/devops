@@ -4,6 +4,7 @@ table of contents
 - [aws](#aws)
 - [terraform](#terraform)
 - [gitops and kubernetes](#gitops-and-kubernetes)
+- [monitoring and logging](#monitoring-and-logging)
 - [traefik](#traefik)
 - [books](#books)
 
@@ -22,6 +23,7 @@ table of contents
 - [aws containers roadmap](https://github.com/aws/containers-roadmap/projects/1)
 - [aws ecs vs. eks](https://skyscrapers.eu/insights/ecs-vs-eks)
 - [aws eks terraform example](https://github.com/hashicorp/terraform-provider-kubernetes/tree/master/_examples/eks)
+- [aws eks and terraform tutorial](https://learnk8s.io/terraform-eks#you-can-provision-an-eks-cluster-with-terraform-too)
 - [aws eks, gitops, codefresh and terraform tutorial ](https://codefresh.io/continuous-deployment/applying-gitops-continuous-delivery-cd-infrastructure-using-terraform-codefresh-aws-elastic-kubernetes-service-eks/)
 
 ## terraform
@@ -123,7 +125,22 @@ output "address" {
 
 ## gitops and kubernetes
 
+### references
+
+- [guide to gitops](https://www.weave.works/technologies/gitops/)
+- [gitops: high velocity cicd for kubernetes](https://www.weave.works/blog/gitops-high-velocity-cicd-for-kubernetes)
+
+## monitoring and logging
+
+### references
+
+- [efk stack on kubernetes](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-elasticsearch-fluentd-and-kibana-efk-logging-stack-on-kubernetes)
+
 ## traefik
+
+### references
+
+- [kubernetes and let's encrypt guide](https://doc.traefik.io/traefik/user-guides/crd-acme/)
 
 ## books
 
