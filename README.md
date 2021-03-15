@@ -114,7 +114,7 @@ output "address" {
 - see what will happen before making changes `terraform plan`
   - preview what will be destroyed `terraform plan -destroy`
 - apply changes `terraform apply`
-- revert config `terraform destroy`
+- destroy infrastructure `terraform destroy`
 - print dependency tree `terraform graph`
     - graphviz online [dependency example](https://bit.ly/3tim0IE)
 - print outputs after using _terraform apply_
