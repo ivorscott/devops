@@ -179,7 +179,8 @@ layout
     - `terraform output <output_name>`
 - [resource behavior - terraform docs](https://www.terraform.io/docs/language/resources/behavior.html)
 - [lifecycle meta arguments - terraform docs](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html)
-
+- [terraform automation with github actions](https://purple.telstra.com/blog/using-github-actions-and-terraform-for-iac-automation)
+- [testing terraform modules with github actions](https://www.hashicorp.com/blog/continuous-integration-for-terraform-modules-with-github-actions)
 ## gitops and kubernetes
 
 ### references
