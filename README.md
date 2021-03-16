@@ -25,14 +25,14 @@ table of contents
 - [aws eks terraform example](https://github.com/hashicorp/terraform-provider-kubernetes/tree/master/_examples/eks)
 - [aws eks and terraform tutorial](https://learnk8s.io/terraform-eks#you-can-provision-an-eks-cluster-with-terraform-too)
 - [aws eks, gitops, codefresh and terraform tutorial ](https://codefresh.io/continuous-deployment/applying-gitops-continuous-delivery-cd-infrastructure-using-terraform-codefresh-aws-elastic-kubernetes-service-eks/)
-
+- [aws s3 as terraform remote backend - terraform docs](https://www.terraform.io/docs/language/settings/backends/s3.html)
 ## terraform
 
-### variables
+### terraform variables
 
 two types of variables: _output and input variables_
 
-#### input variables
+#### 1. input variables
 
 - __def:__ _input variables serve as parameters for your terraform code._
 
@@ -92,7 +92,7 @@ variable "object_example" {
 ```
 </details>
 
-#### output variables (aka output values)
+#### 2. output variables (aka output values)
 
 - __def:__ _outputs define values that will be highlighted to the user when terraform applies. outputs are an easy way to extract attributes from created resources._
 
@@ -108,6 +108,63 @@ output "address" {
 }
 ```
 </details>
+
+### terraform file layout
+
+achieve full isolation between environments
+
+#### 1. put files for each environment into a separate folder
+#### 2. set up a different terraform backend for each environment, with a different aws account
+
+
+<details>
+<summary>example</summary>
+<br>
+layout 
+
+- at the top level, you have __environments__
+- in each environment you have __components__
+- in each component you have __files__
+
+```
+.
+├── dev
+│   ├── vpc
+│   ├── services
+│   │   ├── frontend
+│   │   └── backend
+│   │       ├── variables.tf
+│   │       ├── outputs.tf
+│   │       └── main.tf
+│   └── storage
+│       ├── postgres
+│       └── redis
+│
+├── stage
+│   ├── vpc
+│   ├── services
+│   │   ├── frontend
+│   │   └── backend
+│   └── storage
+│       ├── postgres
+│       └── redis
+│
+├── prod
+│   ├── vpc
+│   ├── services
+│   │   ├── frontend
+│   │   └── backend
+│   └── storage
+│       ├── postgres
+│       └── redis
+│
+└── global
+    ├── iam
+    └── s3
+```
+</details>
+
+
 
 ### references
 - initialize folder + pull code from relevant providers `terraform init`
