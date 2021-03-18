@@ -3,6 +3,7 @@
 table of contents
 - [aws](#aws)
 - [terraform](#terraform)
+- [github actions](#github-actions)
 - [gitops and kubernetes](#gitops-and-kubernetes)
 - [monitoring and logging](#monitoring-and-logging)
 - [traefik](#traefik)
@@ -20,12 +21,16 @@ table of contents
     - [mac, linux, windows, and docker](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 - [aws ec2 instance types](https://aws.amazon.com/ec2/instance-types/)
 - [aws autoscaling groups -  terraform docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group)
+- [aws s3 as terraform remote backend - terraform docs](https://www.terraform.io/docs/language/settings/backends/s3.html)
 - [aws containers roadmap](https://github.com/aws/containers-roadmap/projects/1)
 - [aws ecs vs. eks](https://skyscrapers.eu/insights/ecs-vs-eks)
-- [aws eks terraform example](https://github.com/hashicorp/terraform-provider-kubernetes/tree/master/_examples/eks)
+- [3 different attempts creating an eks cluster ](https://dev.to/langyizhao/my-3-different-attempts-in-creating-an-eks-k8s-cluster-klk)
 - [aws eks and terraform tutorial](https://learnk8s.io/terraform-eks#you-can-provision-an-eks-cluster-with-terraform-too)
-- [aws eks, gitops, codefresh and terraform tutorial ](https://codefresh.io/continuous-deployment/applying-gitops-continuous-delivery-cd-infrastructure-using-terraform-codefresh-aws-elastic-kubernetes-service-eks/)
-- [aws s3 as terraform remote backend - terraform docs](https://www.terraform.io/docs/language/settings/backends/s3.html)
+- [aws eks aws management console and aws cli - aws docs](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html)
+- [aws eks fargate - aws docs](https://docs.aws.amazon.com/eks/latest/userguide/fargate-getting-started.html)
+- [aws eks fargate cluster terraform tutorial #1](https://levelup.gitconnected.com/serverless-webhosting-with-aws-eks-on-fargate-using-terraform-fcd1d98170c1)
+- [aws efk fargate cluster terraform tutorial #2](https://betterprogramming.pub/with-latest-updates-create-amazon-eks-fargate-cluster-and-managed-node-group-using-terraform-bc5cfefd5773)
+
 ## terraform
 
 ### terraform variables
@@ -181,10 +186,24 @@ layout
 - [lifecycle meta arguments - terraform docs](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html)
 - [terraform automation with github actions](https://purple.telstra.com/blog/using-github-actions-and-terraform-for-iac-automation)
 - [testing terraform modules with github actions](https://www.hashicorp.com/blog/continuous-integration-for-terraform-modules-with-github-actions)
+- [terrascan static code analyzer](https://docs.accurics.com/projects/accurics-terrascan/en/latest/getting-started/quickstart/)
+
+## github actions
+
+### references
+
+- [actions/checkout](https://github.com/actions/checkout)
+- [deep dive into pull requests](https://frontside.com/blog/2020-05-26-github-actions-pull_request/)
+- [javascript actions](https://betterprogramming.pub/a-deep-dive-into-github-actions-51e234da0c50)
+- [docker container actions](https://betterprogramming.pub/delving-into-docker-container-actions-588332af5869)
+- [github actions for go project](https://medium.com/swlh/setting-up-github-actions-for-go-project-ea84f4ed3a40)
+- [github actions: the bas and ugly](https://colinsalmcorner.com/deployment-with-github-actions/)
+
 ## gitops and kubernetes
 
 ### references
 
+- [github container registry](https://docs.github.com/en/packages/guides/about-github-container-registry)
 - [guide to gitops](https://www.weave.works/technologies/gitops/)
 - [gitops: high velocity cicd for kubernetes](https://www.weave.works/blog/gitops-high-velocity-cicd-for-kubernetes)
 
