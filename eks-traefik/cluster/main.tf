@@ -2,11 +2,11 @@ terraform {
   required_providers {
     kubernetes = {
       source  = "hashicorp/kubernetes"
-      version = "~> 1.11"
+      version = "2.0.3"
     }
     helm = {
       source = "hashicorp/helm"
-      version = "1.3.1"
+      version = "2.0.3"
     }
   }
 }
@@ -27,7 +27,6 @@ provider "kubernetes" {
   host                   = data.aws_eks_cluster.cluster.endpoint
   cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
   token                  = data.aws_eks_cluster_auth.cluster.token
-  load_config_file       = false
 }
 
 data "aws_availability_zones" "available" {
@@ -35,7 +34,7 @@ data "aws_availability_zones" "available" {
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "2.58.0"
+  version = "2.77.0"
 
   name                 = "k8s-${var.cluster_name}vpc"
   cidr                 = "172.16.0.0/16"
@@ -73,7 +72,7 @@ module "eks" {
       max_capacity     = 10
       min_capacity     = 1
 
-      instance_type = "m5.large"
+      instance_type = var.cluster_region
     }
   }
 
@@ -94,7 +93,6 @@ provider "helm" {
     host                   = data.aws_eks_cluster.cluster.endpoint
     cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
     token                  = data.aws_eks_cluster_auth.cluster.token
-    load_config_file       = false
   }
 }
 
