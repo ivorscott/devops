@@ -98,18 +98,10 @@ provider "helm" {
 
 resource "helm_release" "ingress" {
   name       = "ingress"
-  chart      = "aws-alb-ingress-controller"
-  repository = "https://charts.helm.sh/incubator"
-  version    = "1.0.2"
+  chart      = "aws-load-balancer-controller"
+  repository = "https://aws.github.io/eks-charts"
+  version    = "1.1.5"
 
-  set {
-    name  = "autoDiscoverAwsRegion"
-    value = "true"
-  }
-  set {
-    name  = "autoDiscoverAwsVpcID"
-    value = "true"
-  }
   set {
     name  = "clusterName"
     value = var.cluster_name
