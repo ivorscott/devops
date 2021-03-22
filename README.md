@@ -215,8 +215,9 @@ layout
 ## dns
 
 ### references
-- [Moving a Domain from Namecheap to AWS Route 53](https://www.youtube.com/watch?v=9jamCc3aNZg)
-- [Point Namecheap Domain To EC2 Using AWS Route53](https://turreta.com/2019/02/27/aws-point-your-namecheap-domain-to-ec2-instance-via-route53/)
+- [moving a domain from namecheap to aws route53](https://www.youtube.com/watch?v=9jamCc3aNZg)
+- [point domain to ec2 using aws route53](https://turreta.com/2019/02/27/aws-point-your-namecheap-domain-to-ec2-instance-via-route53/)
+- [point domain to aws load balancer](https://turreta.com/2019/03/18/aws-two-a-records-with-alias-to-refer-to-load-balancer/)
 - [Customizing DNS Service](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/)
 - [CoreDNS docs](https://coredns.io/manual/toc/)
 - [Debugging DNS Resolution](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
