@@ -6,6 +6,7 @@ table of contents
 - [github actions](#github-actions)
 - [gitops and kubernetes](#gitops-and-kubernetes)
 - [monitoring and logging](#monitoring-and-logging)
+- [dns](#dns)
 - [traefik](#traefik)
 - [books](#books)
 
@@ -24,12 +25,9 @@ table of contents
 - [aws s3 as terraform remote backend - terraform docs](https://www.terraform.io/docs/language/settings/backends/s3.html)
 - [aws containers roadmap](https://github.com/aws/containers-roadmap/projects/1)
 - [aws ecs vs. eks](https://skyscrapers.eu/insights/ecs-vs-eks)
-- [3 different attempts creating an eks cluster ](https://dev.to/langyizhao/my-3-different-attempts-in-creating-an-eks-k8s-cluster-klk)
 - [aws eks and terraform tutorial](https://learnk8s.io/terraform-eks#you-can-provision-an-eks-cluster-with-terraform-too)
 - [aws eks aws management console and aws cli - aws docs](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html)
 - [aws eks fargate - aws docs](https://docs.aws.amazon.com/eks/latest/userguide/fargate-getting-started.html)
-- [aws eks fargate cluster terraform tutorial #1](https://levelup.gitconnected.com/serverless-webhosting-with-aws-eks-on-fargate-using-terraform-fcd1d98170c1)
-- [aws efk fargate cluster terraform tutorial #2](https://betterprogramming.pub/with-latest-updates-create-amazon-eks-fargate-cluster-and-managed-node-group-using-terraform-bc5cfefd5773)
 
 ## terraform
 
@@ -212,6 +210,15 @@ layout
 ### references
 
 - [efk stack on kubernetes](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-elasticsearch-fluentd-and-kibana-efk-logging-stack-on-kubernetes)
+
+## dns
+
+### references
+- [Moving a Domain from Namecheap to AWS Route 53](https://www.youtube.com/watch?v=9jamCc3aNZg)
+- [Point Namecheap Domain To EC2 Using AWS Route53](https://turreta.com/2019/02/27/aws-point-your-namecheap-domain-to-ec2-instance-via-route53/)
+- [Customizing DNS Service](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/)
+- [CoreDNS docs](https://coredns.io/manual/toc/)
+- [Debugging DNS Resolution](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
 
 ## traefik
 
