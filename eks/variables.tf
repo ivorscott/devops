@@ -2,7 +2,7 @@
 # Variables Configuration
 #
 variable "region" {
-  default = "us-west-1"
+  default = "eu-central-1"
   type    = string
 }
 
@@ -17,5 +17,5 @@ variable "workers_count" {
 
 variable "workers_type" {
   type    = string
-  default = "m4.large"
+  default = "t2.micro"
 }

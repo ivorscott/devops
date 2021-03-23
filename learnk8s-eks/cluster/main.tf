@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "ap-south-1"
+  region = var.cluster_region
 }
 
 data "aws_eks_cluster" "cluster" {
@@ -61,7 +61,7 @@ module "eks" {
       max_capacity     = 10
       min_capacity     = 1
 
-      instance_type = "m5.large"
+      instance_type = var.instance_type
     }
   }
 
@@ -74,7 +74,7 @@ module "eks" {
 resource "aws_iam_policy" "worker_policy" {
   name = "worker-policy-${var.cluster_name}"
   description = "Worker policy for the ALB Ingress"
-  policy = file("iam-policy.json")
+  policy = file("${path.module}/iam-policy.json")
 }
 
 provider "helm" {
