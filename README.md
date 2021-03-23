@@ -25,9 +25,8 @@ table of contents
 - [aws s3 as terraform remote backend - terraform docs](https://www.terraform.io/docs/language/settings/backends/s3.html)
 - [aws containers roadmap](https://github.com/aws/containers-roadmap/projects/1)
 - [aws ecs vs. eks](https://skyscrapers.eu/insights/ecs-vs-eks)
-- [aws eks and terraform tutorial](https://learnk8s.io/terraform-eks#you-can-provision-an-eks-cluster-with-terraform-too)
-- [aws eks aws management console and aws cli - aws docs](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html)
-- [aws eks fargate - aws docs](https://docs.aws.amazon.com/eks/latest/userguide/fargate-getting-started.html)
+- [older aws eks and terraform tutorial](https://learnk8s.io/terraform-eks#you-can-provision-an-eks-cluster-with-terraform-too)
+- [recent aws eks and terraform tutorial](https://github.com/hashicorp/terraform-provider-kubernetes/tree/master/_examples/eks)
 
 ## terraform
 
