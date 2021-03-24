@@ -1,12 +1,5 @@
 # EKS (Amazon Elastic Kubernetes Service)
 
-### Note: _Kubernetes and Helm_ providers
-The terraform kubernetes and helm providers allow you to automate deployments. The functionality didn't work as expected even with
-the original example code. For example: nginx-ingress-controller is created via helm and a kubernetes deployment is made 
-inside the terraform code. I wasn't able to diagnose the issue. It's simpler to deploy pods outside of terraform anyway.
-
-
-
 This example shows how to use the Terraform Kubernetes Provider and Terraform Helm Provider to configure an EKS cluster. The example config builds the EKS cluster and applies the Kubernetes configurations in a single operation. This guide will also show you how to make changes to the underlying EKS cluster in such a way that Kuberntes/Helm resources are recreated after the underlying cluster is replaced.
 
 You will need the following environment variables to be set:
@@ -37,20 +30,7 @@ This example generates a kubeconfig file in the current working directory. Howev
 ```
 terraform apply
 export KUBECONFIG=$(terraform output -raw kubeconfig_path)
-kubectl get nodes
-```
-
-## Deploy app
-
-```
-kubectl apply -f deployment.yaml
-kubectl port-forward <pod name> 8080:8080 
-```
-
-## Deploy app with loadbalancer
-
-```
-
+kubectl get pods -n test
 ```
 
 ## Optional variables

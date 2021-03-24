@@ -11,5 +11,5 @@ output "lb_dns_name" {
 }
 
 output "domain_names" {
-  value = local.domains
+  value = var.domain_names
 }
