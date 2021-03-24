@@ -23,6 +23,13 @@ module "vpc" {
   source = "./vpc"
 }
 
+module "dns" {
+  source = "./dns"
+  domain_names = var.domain_names
+  lb_dns_name = module.kubernetes-config.aws_elb_dns_name
+  lb_zone_id = module.kubernetes-config.aws_elb_zone_id
+}
+
 module "cluster" {
   source  = "terraform-aws-modules/eks/aws"
   version = "v13.2.1"

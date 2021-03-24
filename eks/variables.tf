@@ -19,3 +19,7 @@ variable "workers_type" {
   type    = string
   default = "t2.micro"
 }
+
+variable "domain_names" {
+  description = "The domain names to assign to the load balancer"
+}

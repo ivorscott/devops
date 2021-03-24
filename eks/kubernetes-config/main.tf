@@ -34,6 +34,41 @@ resource "null_resource" "generate-kubeconfig" {
   }
 }
 
+resource "kubernetes_service" "lb_service" {
+  metadata {
+    name = "classic-lb"
+  }
+  spec {
+    selector = {
+      name = "hello-kubernetes"
+    }
+
+    port {
+      port        = 80
+      target_port = 8080
+    }
+
+    type = "LoadBalancer"
+  }
+}
+
+# Create a local variable for the load balancer name.
+locals {
+  lb_name = split("-", split(".", kubernetes_service.lb_service.status.0.load_balancer.0.ingress.0.hostname).0).0
+}
+
+data "aws_elb" "lb" {
+  name = local.lb_name
+}
+
+output "aws_elb_dns_name" {
+  value = data.aws_elb.lb.dns_name
+}
+
+output "aws_elb_zone_id" {
+  value = data.aws_elb.lb.zone_id
+}
+
 //
 //resource "kubernetes_namespace" "test" {
 //  depends_on  = [var.cluster_name]

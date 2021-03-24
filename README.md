@@ -12,6 +12,11 @@ table of contents
 
 ## aws
 
+notes: 
+
+- aws automatically provisions for you a classic load balancer when you create a load balancer service
+- 
+
 ### references
 - [aws in plain english](https://expeditedsecurity.com/aws-in-plain-english/)
 - [aws provider - terraform docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
