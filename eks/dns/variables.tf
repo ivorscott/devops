@@ -8,4 +8,5 @@ variable "lb_zone_id" {
 
 variable "domain_names" {
   description = "The domain names to assign to the load balancer"
+  type        = list(string)
 }

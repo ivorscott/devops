@@ -6,6 +6,7 @@ You will need the following environment variables to be set:
 
   - `AWS_ACCESS_KEY_ID`
   - `AWS_SECRET_ACCESS_KEY`
+  - `TF_VAR_domain_names`
 
 See [AWS Provider docs](https://www.terraform.io/docs/providers/aws/index.html#configuration-reference) for more details about these variables and alternatives, like `AWS_PROFILE`.
 
@@ -20,6 +21,7 @@ To install the EKS cluster using default values, run terraform init and apply fr
 
 ```
 terraform init
+export TF_VAR_domain_names='["exmaple.com","www.exmaple.com"]'
 terraform apply
 ```
 
@@ -30,7 +32,6 @@ This example generates a kubeconfig file in the current working directory. Howev
 ```
 terraform apply
 export KUBECONFIG=$(terraform output -raw kubeconfig_path)
-kubectl get pods -n test
 ```
 
 ## Optional variables
