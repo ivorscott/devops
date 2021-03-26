@@ -32,6 +32,9 @@ notes:
 - [aws ecs vs. eks](https://skyscrapers.eu/insights/ecs-vs-eks)
 - [older aws eks and terraform tutorial](https://learnk8s.io/terraform-eks#you-can-provision-an-eks-cluster-with-terraform-too)
 - [recent aws eks and terraform tutorial](https://github.com/hashicorp/terraform-provider-kubernetes/tree/master/_examples/eks)
+- [aws load balancer nlb-ip mode - repo docs](https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/c2247a44f4361c7012fd03f1962e56d8e888d073/docs/guide/service/nlb_ip_mode.md)
+- [aws load balancer service annotations - repo docs](https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/c2247a44f4361c7012fd03f1962e56d8e888d073/docs/guide/service/annotations.md)
+- [aws eks, aws load balancer controller nlp-ip tutorial](https://aws.amazon.com/blogs/containers/setting-up-end-to-end-tls-encryption-on-amazon-eks-with-the-new-aws-load-balancer-controller/)
 
 ## terraform
 

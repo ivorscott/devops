@@ -2,5 +2,7 @@
 .terraform
 *.tfstate
 *.tfstate.backup
+*.tfstate.*.backup
+
 kubeconfig_eks-*
 kubeconfig
