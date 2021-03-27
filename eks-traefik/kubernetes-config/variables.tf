@@ -1,4 +1,4 @@
-variable "k8s_node_role_arn" {
+variable "eks_node_role_arn" {
   type = list(string)
 }
 
@@ -18,11 +18,10 @@ variable "cluster_name" {
   type = string
 }
 
-variable "oidc_thumbprint_list" {
-  type    = list(any)
-  default = []
+variable "hostname" {
+  description = "The application domain name (e.g., example.com)"
+  type = string
 }
-
 
 locals {
   mapped_role_format = <<MAPPEDROLE

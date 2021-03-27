@@ -1,9 +1,9 @@
 output "vpc_id" {
-  value = aws_vpc.k8s-acc.id
+  value = aws_vpc.eks-acc.id
 }
 
 output "subnets" {
-  value = aws_subnet.k8s-acc.*.id
+  value = aws_subnet.eks-acc.*.id
 }
 
 output "cluster_name" {

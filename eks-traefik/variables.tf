@@ -19,3 +19,8 @@ variable "workers_type" {
   type    = string
   default = "t2.micro"
 }
+
+variable "hostname" {
+  description = "The application domain name (e.g., example.com)"
+  type = string
+}

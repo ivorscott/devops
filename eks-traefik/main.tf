@@ -50,19 +50,6 @@ module "cluster" {
     },
   ]
 
-  # By default, containers on your worker nodes can access credentials supplied
-  # to the worker node’s instance profile through the Amazon EC2 instance metadata server.
-  # the following block prevents this - https://bit.ly/3lSk4nz
-  workers_group_defaults = {
-    userdata_template_file = <<-EOF
-      # commands block ALL containers from using the instance profile credentials
-      yum install -y iptables-services
-      iptables --insert FORWARD 1 --in-interface eni+ --destination 169.254.169.254/32 --jump DROP
-      iptables-save | tee /etc/sysconfig/iptables
-      systemctl enable --now iptables
-      EOF
-  }
-
   tags = {
     environment = "test"
   }
@@ -70,9 +57,10 @@ module "cluster" {
 
 module "kubernetes-config" {
   source            = "./kubernetes-config"
-  k8s_node_role_arn = list(module.cluster.worker_iam_role_arn)
+  eks_node_role_arn = list(module.cluster.worker_iam_role_arn)
   cluster_ca_cert   = module.cluster.cluster_certificate_authority_data
   cluster_name      = module.cluster.cluster_id # creates dependency on cluster creation
   cluster_oidc_issuer_url = module.cluster.cluster_oidc_issuer_url # required for identity provider creation
   cluster_endpoint  = module.cluster.cluster_endpoint
+  hostname = var.hostname
 }

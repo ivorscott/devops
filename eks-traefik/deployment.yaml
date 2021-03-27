@@ -27,4 +27,3 @@ spec:
   ports:
     - name: hello-kubernetes
       port: 8080
-      targetPort: 8080
