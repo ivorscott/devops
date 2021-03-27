@@ -182,7 +182,6 @@ layout
 
 ### references
 
-- [0.14+ terraform bug ](https://github.com/terraform-aws-modules/terraform-aws-eks/issues/1162) - use [0.13.6](https://releases.hashicorp.com/terraform/0.13.6/)
 - initialize folder + pull code from relevant providers `terraform init`
 - see what will happen before making changes `terraform plan`
   - preview what will be destroyed `terraform plan -destroy`
