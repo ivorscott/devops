@@ -1,6 +1,7 @@
 # devops training
 
 table of contents
+
 - [aws](#aws)
 - [terraform](#terraform)
 - [github actions](#github-actions)
@@ -12,21 +13,22 @@ table of contents
 
 ## aws
 
-notes: 
+notes:
 
 - aws automatically provisions for you a classic load balancer when you create a load balancer service
-- 
+-
 
 ### references
+
 - [aws in plain english](https://expeditedsecurity.com/aws-in-plain-english/)
 - [aws provider - terraform docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
   - [ec2 - aws_instance](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance)
 - [authenticating to aws](https://blog.gruntwork.io/a-comprehensive-guide-to-authenticating-to-aws-on-the-command-line-63656a686799d)
--  install aws cli
-    - homebrew: `brew install awscli`
-    - [mac, linux, windows, and docker](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
+- install aws cli
+  - homebrew: `brew install awscli`
+  - [mac, linux, windows, and docker](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 - [aws ec2 instance types](https://aws.amazon.com/ec2/instance-types/)
-- [aws autoscaling groups -  terraform docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group)
+- [aws autoscaling groups - terraform docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group)
 - [aws s3 as terraform remote backend - terraform docs](https://www.terraform.io/docs/language/settings/backends/s3.html)
 - [aws containers roadmap](https://github.com/aws/containers-roadmap/projects/1)
 - [aws ecs vs. eks](https://skyscrapers.eu/insights/ecs-vs-eks)
@@ -45,7 +47,7 @@ two types of variables: _output and input variables_
 
 #### 1. input variables
 
-- __def:__ _input variables serve as parameters for your terraform code._
+- **def:** _input variables serve as parameters for your terraform code._
 
 [input variables - terraform docs](https://www.terraform.io/docs/configuration-0-11/variables.html)
 
@@ -101,11 +103,12 @@ variable "object_example" {
   }
 }
 ```
+
 </details>
 
 #### 2. output variables (aka output values)
 
-- __def:__ _outputs define values that will be highlighted to the user when terraform applies. outputs are an easy way to extract attributes from created resources._
+- **def:** _outputs define values that will be highlighted to the user when terraform applies. outputs are an easy way to extract attributes from created resources._
 
 [output values - terraform docs](https://www.terraform.io/docs/configuration-0-11/outputs.html)
 
@@ -118,6 +121,7 @@ output "address" {
   value = "${aws_instance.db.public_dns}"
 }
 ```
+
 </details>
 
 ### terraform file layout
@@ -125,17 +129,17 @@ output "address" {
 achieve full isolation between environments
 
 #### 1. put files for each environment into a separate folder
-#### 2. set up a different terraform backend for each environment, with a different aws account
 
+#### 2. set up a different terraform backend for each environment, with a different aws account
 
 <details>
 <summary>example</summary>
 <br>
-layout 
+layout
 
-- at the top level, you have __environments__
-- in each environment you have __components__
-- in each component you have __files__
+- at the top level, you have **environments**
+- in each environment you have **components**
+- in each component you have **files**
 
 ```
 .
@@ -173,11 +177,11 @@ layout
     ├── iam
     └── s3
 ```
+
 </details>
 
-
-
 ### references
+
 - [0.14+ terraform bug ](https://github.com/terraform-aws-modules/terraform-aws-eks/issues/1162) - use [0.13.6](https://releases.hashicorp.com/terraform/0.13.6/)
 - initialize folder + pull code from relevant providers `terraform init`
 - see what will happen before making changes `terraform plan`
@@ -185,10 +189,10 @@ layout
 - apply changes `terraform apply`
 - destroy infrastructure `terraform destroy`
 - print dependency tree `terraform graph`
-    - graphviz online [dependency example](https://bit.ly/3tim0IE)
+  - graphviz online [dependency example](https://bit.ly/3tim0IE)
 - print outputs after using _terraform apply_
-    - `terraform output`
-    - `terraform output <output_name>`
+  - `terraform output`
+  - `terraform output <output_name>`
 - [resource behavior - terraform docs](https://www.terraform.io/docs/language/resources/behavior.html)
 - [lifecycle meta arguments - terraform docs](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html)
 - [terraform automation with github actions](https://purple.telstra.com/blog/using-github-actions-and-terraform-for-iac-automation)
@@ -205,7 +209,7 @@ layout
 - [javascript actions](https://betterprogramming.pub/a-deep-dive-into-github-actions-51e234da0c50)
 - [docker container actions](https://betterprogramming.pub/delving-into-docker-container-actions-588332af5869)
 - [github actions for go project](https://medium.com/swlh/setting-up-github-actions-for-go-project-ea84f4ed3a40)
-- [github actions: the bas and ugly](https://colinsalmcorner.com/deployment-with-github-actions/)
+- [github actions: the bad and ugly](https://colinsalmcorner.com/deployment-with-github-actions/)
 
 ## gitops and kubernetes
 
@@ -226,11 +230,11 @@ layout
 ## dns
 
 ### references
+
 - [moving a domain from namecheap to aws route53](https://www.youtube.com/watch?v=9jamCc3aNZg)
 - [point domain to ec2 using aws route53](https://turreta.com/2019/02/27/aws-point-your-namecheap-domain-to-ec2-instance-via-route53/)
 - [point domain to aws load balancer](https://turreta.com/2019/03/18/aws-two-a-records-with-alias-to-refer-to-load-balancer/)
 - [external dns with route53 in your eks cluster](https://www.padok.fr/en/blog/external-dns-route53-eks)
-
 
 ## traefik
 
