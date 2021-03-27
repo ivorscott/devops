@@ -1,5 +1,9 @@
 # devops training
 
+examples
+
+- [eks-traefik](https://github.com/ivorscott/devops/tree/main/eks-traefik)
+
 table of contents
 
 - [aws](#aws)
@@ -13,20 +17,14 @@ table of contents
 
 ## aws
 
-notes:
-
-- aws automatically provisions for you a classic load balancer when you create a load balancer service
--
-
 ### references
+
+#### links
 
 - [aws in plain english](https://expeditedsecurity.com/aws-in-plain-english/)
 - [aws provider - terraform docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
-  - [ec2 - aws_instance](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance)
+- [ec2 - aws_instance](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance)
 - [authenticating to aws](https://blog.gruntwork.io/a-comprehensive-guide-to-authenticating-to-aws-on-the-command-line-63656a686799d)
-- install aws cli
-  - homebrew: `brew install awscli`
-  - [mac, linux, windows, and docker](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 - [aws ec2 instance types](https://aws.amazon.com/ec2/instance-types/)
 - [aws autoscaling groups - terraform docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group)
 - [aws s3 as terraform remote backend - terraform docs](https://www.terraform.io/docs/language/settings/backends/s3.html)
@@ -38,6 +36,7 @@ notes:
 - [aws load balancer service annotations - repo docs](https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/c2247a44f4361c7012fd03f1962e56d8e888d073/docs/guide/service/annotations.md)
 - [aws eks, aws load balancer controller nlp-ip tutorial](https://aws.amazon.com/blogs/containers/setting-up-end-to-end-tls-encryption-on-amazon-eks-with-the-new-aws-load-balancer-controller/)
 - [aws eks w/ open id connect service accounts](https://marcincuber.medium.com/amazon-eks-with-oidc-provider-iam-roles-for-kubernetes-services-accounts-59015d15cb0c)
+- [bug - aws eks only too many pods error ](https://stackoverflow.com/questions/64965832/aws-eks-only-2-pod-can-be-launched-too-many-pods-error/64972286#64972286)
 
 ## terraform
 
@@ -47,7 +46,7 @@ two types of variables: _output and input variables_
 
 #### 1. input variables
 
-- **def:** _input variables serve as parameters for your terraform code._
+**def:** _input variables serve as parameters for your terraform code._
 
 [input variables - terraform docs](https://www.terraform.io/docs/configuration-0-11/variables.html)
 
@@ -108,7 +107,7 @@ variable "object_example" {
 
 #### 2. output variables (aka output values)
 
-- **def:** _outputs define values that will be highlighted to the user when terraform applies. outputs are an easy way to extract attributes from created resources._
+**def:** _outputs define values that will be highlighted to the user when terraform applies. outputs are an easy way to extract attributes from created resources._
 
 [output values - terraform docs](https://www.terraform.io/docs/configuration-0-11/outputs.html)
 
@@ -182,6 +181,8 @@ layout
 
 ### references
 
+#### commands
+
 - initialize folder + pull code from relevant providers `terraform init`
 - see what will happen before making changes `terraform plan`
   - preview what will be destroyed `terraform plan -destroy`
@@ -192,6 +193,9 @@ layout
 - print outputs after using _terraform apply_
   - `terraform output`
   - `terraform output <output_name>`
+
+#### links
+
 - [resource behavior - terraform docs](https://www.terraform.io/docs/language/resources/behavior.html)
 - [lifecycle meta arguments - terraform docs](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html)
 - [terraform automation with github actions](https://purple.telstra.com/blog/using-github-actions-and-terraform-for-iac-automation)
@@ -202,6 +206,8 @@ layout
 ## github actions
 
 ### references
+
+#### links
 
 - [actions/checkout](https://github.com/actions/checkout)
 - [deep dive into pull requests](https://frontside.com/blog/2020-05-26-github-actions-pull_request/)
@@ -214,8 +220,16 @@ layout
 
 ### references
 
+#### commands
+
+- see resources in all namespaces `kubectl get <kind> --all-namespaces` or `kubectl get <kind> -A`
+- see resources in specific namespace `kubectl get <kind> -n <namespace>`
 - learn about resource specification: `kubectl explain <kind>.<property>`
+- inspect resource `kubectl describe <kind>/name` or `kubectl describe <kind> name`
 - debug events: `kubectl -n <namespace> get events --sort-by='{.lastTimestamp}'`
+
+#### links
+
 - [github container registry](https://docs.github.com/en/packages/guides/about-github-container-registry)
 - [guide to gitops](https://www.weave.works/technologies/gitops/)
 - [gitops: high velocity cicd for kubernetes](https://www.weave.works/blog/gitops-high-velocity-cicd-for-kubernetes)
@@ -224,11 +238,15 @@ layout
 
 ### references
 
+#### links
+
 - [efk stack on kubernetes](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-elasticsearch-fluentd-and-kibana-efk-logging-stack-on-kubernetes)
 
 ## dns
 
 ### references
+
+#### links
 
 - [moving a domain from namecheap to aws route53](https://www.youtube.com/watch?v=9jamCc3aNZg)
 - [point domain to ec2 using aws route53](https://turreta.com/2019/02/27/aws-point-your-namecheap-domain-to-ec2-instance-via-route53/)
@@ -239,7 +257,10 @@ layout
 
 ### references
 
+#### links
+
 - [kubernetes and let's encrypt guide](https://doc.traefik.io/traefik/user-guides/crd-acme/)
+- [traefi and helm](https://gist.github.com/geekgonecrazy/7ba303d610a561c9c587c207ba3ceaa7)
 
 ## books
 

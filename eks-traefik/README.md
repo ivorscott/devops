@@ -4,9 +4,9 @@ This example shows how to use the Terraform Kubernetes Provider and Terraform He
 
 You will need the following environment variables to be set:
 
-  - `AWS_ACCESS_KEY_ID`
-  - `AWS_SECRET_ACCESS_KEY`
-  - `TF_VAR_domain_names`
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `TF_VAR_domain_names`
 
 See [AWS Provider docs](https://www.terraform.io/docs/providers/aws/index.html#configuration-reference) for more details about these variables and alternatives, like `AWS_PROFILE`.
 
@@ -17,12 +17,13 @@ unset KUBE_CONFIG_FILE
 unset KUBE_CONFIG_FILES
 ```
 
+## Getting Started
+
 To install the EKS cluster using default values, run terraform init and apply from the directory containing this README.
 
 ```
 terraform init
-export TF_VAR_domain_names='["exmaple.com","www.exmaple.com"]'
-terraform apply
+terraform apply -var hostname="example.com"
 ```
 
 ## Kubeconfig for manual CLI access
@@ -43,7 +44,6 @@ terraform apply -var=kubernetes_version=1.18
 ```
 
 See https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html for currently available versions.
-
 
 ### Worker node count and instance type
 
