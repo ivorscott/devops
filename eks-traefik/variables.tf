@@ -17,7 +17,7 @@ variable "workers_count" {
 
 variable "workers_type" {
   type    = string
-  default = "t2.micro"
+  default = "t2.medium"
 }
 
 variable "hostname" {
