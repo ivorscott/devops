@@ -35,6 +35,7 @@ notes:
 - [aws load balancer nlb-ip mode - repo docs](https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/c2247a44f4361c7012fd03f1962e56d8e888d073/docs/guide/service/nlb_ip_mode.md)
 - [aws load balancer service annotations - repo docs](https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/c2247a44f4361c7012fd03f1962e56d8e888d073/docs/guide/service/annotations.md)
 - [aws eks, aws load balancer controller nlp-ip tutorial](https://aws.amazon.com/blogs/containers/setting-up-end-to-end-tls-encryption-on-amazon-eks-with-the-new-aws-load-balancer-controller/)
+- [aws eks w/ open id connect service accounts](https://marcincuber.medium.com/amazon-eks-with-oidc-provider-iam-roles-for-kubernetes-services-accounts-59015d15cb0c)
 
 ## terraform
 
@@ -193,6 +194,7 @@ layout
 - [terraform automation with github actions](https://purple.telstra.com/blog/using-github-actions-and-terraform-for-iac-automation)
 - [testing terraform modules with github actions](https://www.hashicorp.com/blog/continuous-integration-for-terraform-modules-with-github-actions)
 - [terrascan static code analyzer](https://docs.accurics.com/projects/accurics-terrascan/en/latest/getting-started/quickstart/)
+- [annotations in helm w/ terraform](https://medium.com/@nitinnbisht/annotation-in-helm-with-terraform-3fa04eb30b6e)
 
 ## github actions
 
@@ -209,6 +211,8 @@ layout
 
 ### references
 
+- learn about resource specification: `kubectl explain <kind>.<property>`
+- debug events: `kubectl -n <namespace> get events --sort-by='{.lastTimestamp}'`
 - [github container registry](https://docs.github.com/en/packages/guides/about-github-container-registry)
 - [guide to gitops](https://www.weave.works/technologies/gitops/)
 - [gitops: high velocity cicd for kubernetes](https://www.weave.works/blog/gitops-high-velocity-cicd-for-kubernetes)
@@ -225,9 +229,8 @@ layout
 - [moving a domain from namecheap to aws route53](https://www.youtube.com/watch?v=9jamCc3aNZg)
 - [point domain to ec2 using aws route53](https://turreta.com/2019/02/27/aws-point-your-namecheap-domain-to-ec2-instance-via-route53/)
 - [point domain to aws load balancer](https://turreta.com/2019/03/18/aws-two-a-records-with-alias-to-refer-to-load-balancer/)
-- [Customizing DNS Service](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/)
-- [CoreDNS docs](https://coredns.io/manual/toc/)
-- [Debugging DNS Resolution](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
+- [external dns with route53 in your eks cluster](https://www.padok.fr/en/blog/external-dns-route53-eks)
+
 
 ## traefik
 
