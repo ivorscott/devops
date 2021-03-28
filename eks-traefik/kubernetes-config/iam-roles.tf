@@ -8,7 +8,7 @@ resource "aws_iam_role" "external_dns" {
   assume_role_policy = templatefile("${path.module}/policies/oidc-assume-role-policy.json", {
     OIDC_ARN=aws_iam_openid_connect_provider.cluster.arn,
     OIDC_URL=local.oidc_url,
-    NAMESPACE="kube-system",
+    NAMESPACE="default",
     SA_NAME="external-dns"
   })
 
@@ -19,7 +19,7 @@ resource "aws_iam_role" "external_dns" {
 
   tags = {
     "ServiceAccountName"      = "external-dns"
-    "ServiceAccountNameSpace" = "kube-system"
+    "ServiceAccountNameSpace" = "default"
   }
 }
 
@@ -29,7 +29,7 @@ resource "aws_iam_role" "aws_load_balancer_controller" {
   assume_role_policy = templatefile("${path.module}/policies/oidc-assume-role-policy.json", {
     OIDC_ARN=aws_iam_openid_connect_provider.cluster.arn,
     OIDC_URL=local.oidc_url,
-    NAMESPACE="kube-system",
+    NAMESPACE="default",
     SA_NAME="aws-load-balancer-controller"
   })
 
@@ -40,6 +40,6 @@ resource "aws_iam_role" "aws_load_balancer_controller" {
 
   tags = {
     "ServiceAccountName"      = "aws-load-balancer-controller"
-    "ServiceAccountNameSpace" = "kube-system"
+    "ServiceAccountNameSpace" = "default"
   }
 }

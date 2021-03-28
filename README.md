@@ -32,11 +32,11 @@ table of contents
 - [aws ecs vs. eks](https://skyscrapers.eu/insights/ecs-vs-eks)
 - [older aws eks and terraform tutorial](https://learnk8s.io/terraform-eks#you-can-provision-an-eks-cluster-with-terraform-too)
 - [recent aws eks and terraform tutorial](https://github.com/hashicorp/terraform-provider-kubernetes/tree/master/_examples/eks)
-- [aws load balancer nlb-ip mode - repo docs](https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/c2247a44f4361c7012fd03f1962e56d8e888d073/docs/guide/service/nlb_ip_mode.md)
 - [aws load balancer service annotations - repo docs](https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/c2247a44f4361c7012fd03f1962e56d8e888d073/docs/guide/service/annotations.md)
-- [aws eks, aws load balancer controller nlp-ip tutorial](https://aws.amazon.com/blogs/containers/setting-up-end-to-end-tls-encryption-on-amazon-eks-with-the-new-aws-load-balancer-controller/)
 - [aws eks w/ open id connect service accounts](https://marcincuber.medium.com/amazon-eks-with-oidc-provider-iam-roles-for-kubernetes-services-accounts-59015d15cb0c)
 - [bug - aws eks only too many pods error ](https://stackoverflow.com/questions/64965832/aws-eks-only-2-pod-can-be-launched-too-many-pods-error/64972286#64972286)
+- [aws eks nodes not recreated when template changes - terraform module](https://github.com/terraform-aws-modules/terraform-aws-eks/blob/master/docs/faq.md#why-are-nodes-not-recreated-when-the-launch_configurationlaunch_template-is-recreated)
+- [using the cluster auto scaler on aws](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md)
 
 ## terraform
 
@@ -233,6 +233,7 @@ layout
 - [github container registry](https://docs.github.com/en/packages/guides/about-github-container-registry)
 - [guide to gitops](https://www.weave.works/technologies/gitops/)
 - [gitops: high velocity cicd for kubernetes](https://www.weave.works/blog/gitops-high-velocity-cicd-for-kubernetes)
+- [kubernetes cluster autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md)
 
 ## monitoring and logging
 
@@ -260,7 +261,8 @@ layout
 #### links
 
 - [kubernetes and let's encrypt guide](https://doc.traefik.io/traefik/user-guides/crd-acme/)
-- [traefi and helm](https://gist.github.com/geekgonecrazy/7ba303d610a561c9c587c207ba3ceaa7)
+- [traefik and helm](https://github.com/traefik/traefik-helm-chart#installing)
+- [advanced api routing in eks with traefik](https://revolgy.com/blog/advanced-api-routing-in-eks-with-traefik-aws-loadbalancer-controller-and-external-dns/)
 
 ## books
 

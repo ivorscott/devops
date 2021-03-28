@@ -1,19 +1,51 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-kubernetes
-  namespace: kube-system
+  name: deployment-2048
 spec:
   selector:
     matchLabels:
-      name: hello-kubernetes
+      app.kubernetes.io/name: app-2048
+  replicas: 5
   template:
     metadata:
       labels:
-        name: hello-kubernetes
+        app.kubernetes.io/name: app-2048
     spec:
       containers:
-        - name: app
-          image: paulbouwer/hello-kubernetes:1.8
+        - image: alexwhen/docker-2048
+          imagePullPolicy: Always
+          name: app-2048
           ports:
-            - containerPort: 8080
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-2048
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  type: NodePort
+  selector:
+    app.kubernetes.io/name: app-2048
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-2048
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  rules:
+    - host: devpie.io
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: service-2048
+              servicePort: 80

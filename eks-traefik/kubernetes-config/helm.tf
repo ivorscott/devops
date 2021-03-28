@@ -14,7 +14,7 @@ resource "helm_release" "external_dns" {
   name       = "external-dns"
   repository = "https://charts.bitnami.com/bitnami"
   chart      = "external-dns"
-  namespace = "kube-system"
+  namespace = "default"
 
   set {
     name  = "provider"
@@ -69,7 +69,7 @@ resource "helm_release" "aws_load_balancer_controller" {
   name       = "aws-load-balancer-controller"
   repository = "https://aws.github.io/eks-charts"
   chart      = "aws-load-balancer-controller"
-  namespace = "kube-system"
+  namespace = "default"
 
   set {
     name  = "clusterName"
