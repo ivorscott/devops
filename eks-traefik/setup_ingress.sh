@@ -11,10 +11,10 @@ metadata:
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
     alb.ingress.kubernetes.io/backend-protocol: HTTP
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-central-1:554897346438:certificate/ef9e7fcb-11e6-408b-a57d-b3e914226791
+    alb.ingress.kubernetes.io/certificate-arn: $1
 spec:
   rules:
-    - host: $1
+    - host: $2
       http:
         paths:
           # HTTP to HTTPS redirect entry
