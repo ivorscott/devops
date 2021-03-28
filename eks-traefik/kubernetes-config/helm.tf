@@ -38,7 +38,7 @@ resource "helm_release" "external_dns" {
   }
   set {
     name  = "txtOwnerId"
-    value = "Z071124325ZQB395B4HUV"
+    value = var.hosted_zone_id
   }
   set {
     name  = "interval"

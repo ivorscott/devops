@@ -31,21 +31,3 @@ spec:
   type: NodePort
   selector:
     app.kubernetes.io/name: app-2048
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: ingress-2048
-  annotations:
-    kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
-spec:
-  rules:
-    - host: devpie.io
-      http:
-        paths:
-          - path: /*
-            backend:
-              serviceName: service-2048
-              servicePort: 80

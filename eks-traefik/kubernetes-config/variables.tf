@@ -23,6 +23,11 @@ variable "hostname" {
   type = string
 }
 
+variable "hosted_zone_id" {
+  description = "An existing hosted zone id from route53"
+  type = string
+}
+
 locals {
   mapped_role_format = <<MAPPEDROLE
 - rolearn: %s

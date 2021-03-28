@@ -1,5 +1,26 @@
 # EKS (Amazon Elastic Kubernetes Service)
 
+## Quick Start
+
+Make sure you have an AWS account and a domain name in a route53 hosted zone, then run:
+
+```bash
+# create
+make apply hostname=example.com hosted_zone_id=xxxxxxxxxxxxxx
+
+# destroy
+make destroy
+```
+
+Optionally, you can create the following environment variables in an .env file in the root folder
+
+```bash
+ENV_HOSTNAME=example.com
+ENV_ZONE_ID=xxxxxxxxxxxxxx
+```
+
+## Description
+
 This example shows how to use the Terraform Kubernetes Provider and Terraform Helm Provider to configure an EKS cluster. The example config builds the EKS cluster and applies the Kubernetes configurations in a single operation. This guide will also show you how to make changes to the underlying EKS cluster in such a way that Kuberntes/Helm resources are recreated after the underlying cluster is replaced.
 
 You will need the following environment variables to be set:
@@ -17,13 +38,11 @@ unset KUBE_CONFIG_FILE
 unset KUBE_CONFIG_FILES
 ```
 
-## Getting Started
-
 To install the EKS cluster using default values, run terraform init and apply from the directory containing this README.
 
 ```
 terraform init
-terraform apply -var hostname="example.com"
+terraform apply -var hostname="example.com" -var hosted_zone_id="xxxxxxxxxxxxxx"
 ```
 
 ## Kubeconfig for manual CLI access

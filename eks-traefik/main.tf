@@ -63,4 +63,5 @@ module "kubernetes-config" {
   cluster_oidc_issuer_url = module.cluster.cluster_oidc_issuer_url # required for identity provider creation
   cluster_endpoint  = module.cluster.cluster_endpoint
   hostname = var.hostname
+  hosted_zone_id = var.hosted_zone_id
 }
