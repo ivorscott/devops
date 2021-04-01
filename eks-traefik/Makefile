@@ -9,11 +9,13 @@ apply:
 	terraform apply \
 	-var hostname="$(hostname)" \
 	-var hosted_zone_id="$(zone)" -auto-approve
+.PHONY: apply
+
+deploy:
 	./setup_ingress.sh $(terraform output -raw acm_cert_arn) $(hostname)
 	KUBECONFIG=./kubeconfig kubectl apply -f .
-.PHONY: apply
 
 destroy:
 	KUBECONFIG=./kubeconfig kubectl delete -f .
-	terraform destroy -var hostname="" hosted_zone_id="" -auto-approve
+	terraform destroy -var hostname="" -var hosted_zone_id="" -auto-approve
 .PHONY: destroy

@@ -24,6 +24,6 @@ spec:
               servicePort: use-annotation
           - path: /*
             backend:
-              serviceName: service-2048
+              serviceName: traefik
               servicePort: 80
 EOF

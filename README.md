@@ -222,11 +222,14 @@ layout
 
 #### commands
 
+- see all resources in current namespace `kubectl get all`
 - see resources in all namespaces `kubectl get <kind> --all-namespaces` or `kubectl get <kind> -A`
 - see resources in specific namespace `kubectl get <kind> -n <namespace>`
 - learn about resource specification: `kubectl explain <kind>.<property>`
 - inspect resource `kubectl describe <kind>/name` or `kubectl describe <kind> name`
 - debug events: `kubectl -n <namespace> get events --sort-by='{.lastTimestamp}'`
+- get cluster roles `kubectl get clusteroles` 
+- get cluster role bindings `kubectl get clusterolebindings`
 
 #### links
 
