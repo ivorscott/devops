@@ -56,7 +56,7 @@ spec:
             - --entrypoints.websecure.Address=:443
             - --providers.kubernetescrd=true
             - --providers.kubernetescrd.namespaces=default
-            - --providers.kubernetescrd.labelselector="app=traefik"
+            - --providers.kubernetescrd.labelselector=app=traefik
           ports:
             - name: web
               containerPort: 8000

@@ -25,7 +25,7 @@ metadata:
   name: service-2048
 spec:
   ports:
-    - name: service-2048
+    - name: http
       protocol: TCP
       port: 80
   selector:

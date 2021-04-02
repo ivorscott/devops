@@ -1,15 +1,17 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: route
+  name: approute
   namespace: default
+  labels:
+    app: traefik
 spec:
   entryPoints:
     - websecure
   routes:
-    - match: PathPrefix(`/`)
-      kind: Rule
-      services:
-        - name: service-2048
-          port: 80
+  - match: Host(`devpie.io`)
+    kind: Rule
+    services:
+      - name: service-2048
+        port: 80
 

@@ -12,6 +12,8 @@ metadata:
     alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
     alb.ingress.kubernetes.io/backend-protocol: HTTP
     alb.ingress.kubernetes.io/certificate-arn: $1
+  labels:
+    app: traefik
 spec:
   rules:
     - host: $2
@@ -25,5 +27,5 @@ spec:
           - path: /*
             backend:
               serviceName: traefik
-              servicePort: 80
+              servicePort: 443
 EOF
