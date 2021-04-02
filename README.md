@@ -40,145 +40,6 @@ table of contents
 
 ## terraform
 
-### terraform variables
-
-two types of variables: _output and input variables_
-
-#### 1. input variables
-
-**def:** _input variables serve as parameters for your terraform code._
-
-[input variables - terraform docs](https://www.terraform.io/docs/configuration-0-11/variables.html)
-
-<details>
-<summary>example</summary>
-<br>
-
-```terraform
-
-variable "number_example" {
-  description = "An example of a number variable in Terraform"
-  type        = number
-  default     = 42
-}
-
-variable "list_example" {
-  description = "An example of a list in Terraform"
-  type        = list
-  default     = ["a", "b", "c"]
-}
-
-variable "list_numeric_example" {
-  description = "An example of a numeric list in Terraform"
-  type        = list(number)
-  default     = [1, 2, 3]
-}
-
-variable "map_example" {
-  description = "An example of a map in Terraform"
-  type        = map(string)
-
-  default = {
-    key1 = "value1"
-    key2 = "value2"
-    key3 = "value3"
-  }
-}
-
-variable "object_example" {
-  description = "An example of a structural type in Terraform"
-  type        = object({
-    name    = string
-    age     = number
-    tags    = list(string)
-    enabled = bool
-  })
-
-  default = {
-    name    = "value1"
-    age     = 42
-    tags    = ["a", "b", "c"]
-    enabled = true
-  }
-}
-```
-
-</details>
-
-#### 2. output variables (aka output values)
-
-**def:** _outputs define values that will be highlighted to the user when terraform applies. outputs are an easy way to extract attributes from created resources._
-
-[output values - terraform docs](https://www.terraform.io/docs/configuration-0-11/outputs.html)
-
-<details>
-<summary>example</summary>
-<br>
-
-```terraform
-output "address" {
-  value = "${aws_instance.db.public_dns}"
-}
-```
-
-</details>
-
-### terraform file layout
-
-achieve full isolation between environments
-
-#### 1. put files for each environment into a separate folder
-
-#### 2. set up a different terraform backend for each environment, with a different aws account
-
-<details>
-<summary>example</summary>
-<br>
-layout
-
-- at the top level, you have **environments**
-- in each environment you have **components**
-- in each component you have **files**
-
-```
-.
-├── dev
-│   ├── vpc
-│   ├── services
-│   │   ├── frontend
-│   │   └── backend
-│   │       ├── variables.tf
-│   │       ├── outputs.tf
-│   │       └── main.tf
-│   └── storage
-│       ├── postgres
-│       └── redis
-│
-├── stage
-│   ├── vpc
-│   ├── services
-│   │   ├── frontend
-│   │   └── backend
-│   └── storage
-│       ├── postgres
-│       └── redis
-│
-├── prod
-│   ├── vpc
-│   ├── services
-│   │   ├── frontend
-│   │   └── backend
-│   └── storage
-│       ├── postgres
-│       └── redis
-│
-└── global
-    ├── iam
-    └── s3
-```
-
-</details>
-
 ### references
 
 #### commands
@@ -222,11 +83,14 @@ layout
 
 #### commands
 
+- see all resources in current namespace `kubectl get all`
 - see resources in all namespaces `kubectl get <kind> --all-namespaces` or `kubectl get <kind> -A`
 - see resources in specific namespace `kubectl get <kind> -n <namespace>`
 - learn about resource specification: `kubectl explain <kind>.<property>`
 - inspect resource `kubectl describe <kind>/name` or `kubectl describe <kind> name`
 - debug events: `kubectl -n <namespace> get events --sort-by='{.lastTimestamp}'`
+- get cluster roles `kubectl get clusteroles` 
+- get cluster role bindings `kubectl get clusterolebindings`
 
 #### links
 
@@ -263,10 +127,3 @@ layout
 - [kubernetes and let's encrypt guide](https://doc.traefik.io/traefik/user-guides/crd-acme/)
 - [traefik and helm](https://github.com/traefik/traefik-helm-chart#installing)
 - [advanced api routing in eks with traefik](https://revolgy.com/blog/advanced-api-routing-in-eks-with-traefik-aws-loadbalancer-controller-and-external-dns/)
-
-## books
-
-- terraform: up and running - o'reilly - yevgeniy brikman
-- gitops and kubernetes - manning - yuen, matyushentsev, ekenstam, suen
-- traefik api gateway for microservices - apress - sharma, mathur
-- amazon web services in action - manning - michael & andreas wittig

@@ -25,9 +25,8 @@ metadata:
   name: service-2048
 spec:
   ports:
-    - port: 80
-      targetPort: 80
+    - name: http
       protocol: TCP
-  type: NodePort
+      port: 80
   selector:
     app.kubernetes.io/name: app-2048

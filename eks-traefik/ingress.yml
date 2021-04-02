@@ -1,6 +1,3 @@
-#!/bin/bash 
-
-cat > ingress.yml <<EOF
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -11,12 +8,12 @@ metadata:
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
     alb.ingress.kubernetes.io/backend-protocol: HTTP
-    alb.ingress.kubernetes.io/certificate-arn: $1
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-central-1:554897346438:certificate/9089238b-8e73-4b50-b2c7-755f469e21d4
   labels:
     app: traefik
 spec:
   rules:
-    - host: $2
+    - host: devpie.io
       http:
         paths:
           # HTTP to HTTPS redirect entry
@@ -28,4 +25,3 @@ spec:
             backend:
               serviceName: traefik
               servicePort: 443
-EOF
