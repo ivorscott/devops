@@ -7,8 +7,8 @@ metadata:
     fluxcd.io/automated: "true"
 spec:
   selector:
-      matchLabels:
-        app: aws-example-octodex
+    matchLabels:
+      app: aws-example-octodex
   replicas: 1
   strategy:
     rollingUpdate:
@@ -23,7 +23,7 @@ spec:
       containers:
       - name: aws-example-octodex
         # image: 00000000000000.dkr.ecr.my-region.amazonaws.com/example-eks:tag
-        image: 554897346438.dkr.ecr.eu-central-1.amazonaws.com/example-eks:b531e23c619b3c75672e49b734b995a3c7a04dfd
+        image: 554897346438.dkr.ecr.eu-central-1.amazonaws.com/example-eks:d4c18e112952df5d4d143d36ba773bc47bea1ccf
         ports:
         - containerPort: 5000
         resources:
