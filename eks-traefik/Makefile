@@ -14,10 +14,10 @@ build:
 	terraform apply \
 	-var hostname="$(hostname)" \
 	-var hosted_zone_id="$(zone)" -auto-approve
+	./setup_ingress.sh $(shell terraform output -raw acm_cert_arn) $(hostname)
 .PHONY: build
 
 up:
-	./setup_ingress.sh $(shell terraform output -raw acm_cert_arn) $(hostname)
 	$(kconfig) kubectl apply -f deployment.yml -f traefik.yml -f ingress.yml
 	$(kconfig) kubectl apply -f ingress-route.yml
 .PHONY: up
