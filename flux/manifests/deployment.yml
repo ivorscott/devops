@@ -6,6 +6,9 @@ metadata:
   annotations:
     fluxcd.io/automated: "true"
 spec:
+  selector:
+      matchLabels:
+        app: aws-example-octodex
   replicas: 1
   strategy:
     rollingUpdate:
