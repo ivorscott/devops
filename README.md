@@ -83,6 +83,7 @@ table of contents
 
 #### commands
 
+- see full internal representation of an object in YAML format `kubectl get <kind> -o=yaml` or `kubectl get <kind> --output=yaml`
 - see all resources in current namespace `kubectl get all`
 - see resources in all namespaces `kubectl get <kind> --all-namespaces` or `kubectl get <kind> -A`
 - see resources in specific namespace `kubectl get <kind> -n <namespace>`
