@@ -9,7 +9,8 @@ table of contents
 - [aws](#aws)
 - [terraform](#terraform)
 - [github actions](#github-actions)
-- [gitops and kubernetes](#gitops-and-kubernetes)
+- [gitops](#gitops)
+- [kubernetes](#kubernetes)
 - [monitoring and logging](#monitoring-and-logging)
 - [dns](#dns)
 - [traefik](#traefik)
@@ -97,7 +98,45 @@ table of contents
 - [github actions for go project](https://medium.com/swlh/setting-up-github-actions-for-go-project-ea84f4ed3a40)
 - [github actions: the bad and ugly](https://colinsalmcorner.com/deployment-with-github-actions/)
 
-## gitops and kubernetes
+## gitops
+
+### references
+
+#### commands
+
+- update manifest with new image tag:
+
+  `kustomize edit set image sample-app=$USERNAME/sample-app:$GITHUB_SHA`
+
+  ```bash
+  export VERSION=$(git rev-parse HEAD | cut -c1-7)
+  export NEW_IMAGE="username/sample-app:${VERSION}"
+
+  kubectl patch \
+    --local \
+    -o yaml \
+    -f deployment.yaml \
+    -p "spec:
+          template:
+            spec:
+              containers:
+              - name: sample-app
+                image: ${NEW_IMAGE}" \
+    > /tmp/newdeployment.yaml
+  mv /tmp/newdeployment.yaml deployment.yaml
+  git commit deployment.yaml -m "Update sample-app image to ${NEW_IMAGE}"
+  ```
+
+#### links
+
+- [github container registry](https://docs.github.com/en/packages/guides/about-github-container-registry)
+- [guide to gitops](https://www.weave.works/technologies/gitops/)
+- [gitops: high velocity cicd for kubernetes](https://www.weave.works/blog/gitops-high-velocity-cicd-for-kubernetes)
+- [event filtering - github workflows](https://github.blog/changelog/2019-09-30-github-actions-event-filtering-updates/)
+- [build matrix - managing complex workflows](https://docs.github.com/en/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)
+- [argocd workflow w/ kustomize & gh actions](https://faun.pub/how-to-build-a-gitops-workflow-with-argocd-kustomize-and-github-actions-f919e7443295)
+
+## kubernetes
 
 ### references
 
@@ -105,7 +144,9 @@ table of contents
 
 - see full internal representation of an object in YAML format:
 
-  `kubectl get <kind> -o=yaml` or `kubectl get <kind> --output=yaml`
+  `kubectl get <kind> -o=yaml`
+
+  `kubectl get <kind> --output=yaml`
 
 - see all resources in current namespace
 
@@ -113,7 +154,9 @@ table of contents
 
 - see resources in all namespaces:
 
-  `kubectl get <kind> --all-namespaces` or `kubectl get <kind> -A`
+  `kubectl get <kind> --all-namespaces`
+
+  `kubectl get <kind> -A`
 
 - see resources in specific namespace:
 
@@ -125,33 +168,23 @@ table of contents
 
 - inspect resource:
 
-  `kubectl describe <kind>/name` or `kubectl describe <kind> name`
+  `kubectl describe <kind>/name`
+
+  `kubectl describe <kind> name`
 
 - debug events:
 
   `kubectl -n <namespace> get events --sort-by='{.lastTimestamp}'`
 
-- get cluster roles:
+- get cluster roles and role bindings
 
   `kubectl get clusteroles`
 
-- get cluster role bindings:
-
   `kubectl get clusterolebindings`
-
-- update manifest with new image tag:
-
-  `kustomize edit set image my-image=$USERNAME/my-image:$GITHUB_SHA`
 
 #### links
 
-- [github container registry](https://docs.github.com/en/packages/guides/about-github-container-registry)
-- [guide to gitops](https://www.weave.works/technologies/gitops/)
-- [gitops: high velocity cicd for kubernetes](https://www.weave.works/blog/gitops-high-velocity-cicd-for-kubernetes)
-- [kubernetes cluster autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md)
-- [event filtering - github workflows](https://github.blog/changelog/2019-09-30-github-actions-event-filtering-updates/)
-- [build matrix - managing complex workflows](https://docs.github.com/en/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)
-- [argocd workflow w/ kustomize & gh actions](https://faun.pub/how-to-build-a-gitops-workflow-with-argocd-kustomize-and-github-actions-f919e7443295)
+- [kubectl cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 
 ## monitoring and logging
 
