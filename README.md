@@ -43,16 +43,37 @@ table of contents
 
 #### commands
 
-- initialize folder + pull code from relevant providers `terraform init`
-- see what will happen before making changes `terraform plan`
-  - preview what will be destroyed `terraform plan -destroy`
-- apply changes `terraform apply`
-- destroy infrastructure `terraform destroy`
-- print dependency tree `terraform graph`
+- initialize folder + pull code from relevant providers:
+
+  `terraform init`
+
+- see what will happen before making changes:
+
+  `terraform plan`
+
+- preview what will be destroyed
+
+  `terraform plan -destroy`
+
+- apply changes
+
+  `terraform apply`
+
+- destroy infrastructure:
+
+  `terraform destroy`
+
+- print dependency tree:
+
+  `terraform graph`
+
   - graphviz online [dependency example](https://bit.ly/3tim0IE)
-- print outputs after using _terraform apply_
-  - `terraform output`
-  - `terraform output <output_name>`
+
+- display outputs after using _terraform apply_:
+
+  `terraform output`
+
+  `terraform output <output_name>`
 
 #### links
 
@@ -82,14 +103,45 @@ table of contents
 
 #### commands
 
-- see all resources in current namespace `kubectl get all`
-- see resources in all namespaces `kubectl get <kind> --all-namespaces` or `kubectl get <kind> -A`
-- see resources in specific namespace `kubectl get <kind> -n <namespace>`
-- learn about resource specification: `kubectl explain <kind>.<property>`
-- inspect resource `kubectl describe <kind>/name` or `kubectl describe <kind> name`
-- debug events: `kubectl -n <namespace> get events --sort-by='{.lastTimestamp}'`
-- get cluster roles `kubectl get clusteroles`
-- get cluster role bindings `kubectl get clusterolebindings`
+- see full internal representation of an object in YAML format:
+
+  `kubectl get <kind> -o=yaml` or `kubectl get <kind> --output=yaml`
+
+- see all resources in current namespace
+
+  `kubectl get all`
+
+- see resources in all namespaces:
+
+  `kubectl get <kind> --all-namespaces` or `kubectl get <kind> -A`
+
+- see resources in specific namespace:
+
+  `kubectl get <kind> -n <namespace>`
+
+- learn about resource specification:
+
+  `kubectl explain <kind>.<property>`
+
+- inspect resource:
+
+  `kubectl describe <kind>/name` or `kubectl describe <kind> name`
+
+- debug events:
+
+  `kubectl -n <namespace> get events --sort-by='{.lastTimestamp}'`
+
+- get cluster roles:
+
+  `kubectl get clusteroles`
+
+- get cluster role bindings:
+
+  `kubectl get clusterolebindings`
+
+- update manifest with new image tag:
+
+  `kustomize edit set image my-image=$USERNAME/my-image:$GITHUB_SHA`
 
 #### links
 
@@ -99,6 +151,7 @@ table of contents
 - [kubernetes cluster autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md)
 - [event filtering - github workflows](https://github.blog/changelog/2019-09-30-github-actions-event-filtering-updates/)
 - [build matrix - managing complex workflows](https://docs.github.com/en/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)
+- [argocd workflow w/ kustomize & gh actions](https://faun.pub/how-to-build-a-gitops-workflow-with-argocd-kustomize-and-github-actions-f919e7443295)
 
 ## monitoring and logging
 
