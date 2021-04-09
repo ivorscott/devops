@@ -1,9 +1,5 @@
 # devops training
 
-examples
-
-- [eks-traefik](https://github.com/ivorscott/devops/tree/main/eks-traefik)
-
 table of contents
 
 - [aws](#aws)
