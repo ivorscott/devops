@@ -100,6 +100,10 @@ table of contents
 
 #### commands
 
+- apply resource manifests to cluster declaratively
+
+  `kubectl apply -f app.yml`
+
 - update manifest with new image tag:
 
   `kustomize edit set image sample-app=$USERNAME/sample-app:$GITHUB_SHA`
@@ -121,6 +125,7 @@ table of contents
     > /tmp/newdeployment.yaml
   mv /tmp/newdeployment.yaml deployment.yaml
   git commit deployment.yaml -m "Update sample-app image to ${NEW_IMAGE}"
+  git push
   ```
 
 #### links
@@ -177,6 +182,10 @@ table of contents
   `kubectl get clusteroles`
 
   `kubectl get clusterolebindings`
+
+- see changes made to yaml file
+
+  `kubectl diff -f app.yml`
 
 #### links
 
