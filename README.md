@@ -13,7 +13,6 @@ table of contents
 - [monitoring and logging](#monitoring-and-logging)
 - [dns](#dns)
 - [traefik](#traefik)
-- [books](#books)
 
 ## aws
 
@@ -89,7 +88,7 @@ table of contents
 - learn about resource specification: `kubectl explain <kind>.<property>`
 - inspect resource `kubectl describe <kind>/name` or `kubectl describe <kind> name`
 - debug events: `kubectl -n <namespace> get events --sort-by='{.lastTimestamp}'`
-- get cluster roles `kubectl get clusteroles` 
+- get cluster roles `kubectl get clusteroles`
 - get cluster role bindings `kubectl get clusterolebindings`
 
 #### links
@@ -100,6 +99,7 @@ table of contents
 - [kubernetes cluster autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md)
 - [event filtering - github workflows](https://github.blog/changelog/2019-09-30-github-actions-event-filtering-updates/)
 - [build matrix - managing complex workflows](https://docs.github.com/en/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)
+
 ## monitoring and logging
 
 ### references
