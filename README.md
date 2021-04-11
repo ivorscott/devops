@@ -142,8 +142,8 @@ table of contents
 - [event filtering - github workflows](https://github.blog/changelog/2019-09-30-github-actions-event-filtering-updates/)
 - [build matrix - managing complex workflows](https://docs.github.com/en/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)
 - [argocd workflow w/ kustomize & gh actions](https://faun.pub/how-to-build-a-gitops-workflow-with-argocd-kustomize-and-github-actions-f919e7443295)
-
 - [git flow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+- [pull private from github container registry](https://itnext.io/build-ship-github-container-registry-kubernetes-aa06029b3f21)
 
 ## kubernetes
 
