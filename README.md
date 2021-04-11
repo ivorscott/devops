@@ -10,6 +10,7 @@ table of contents
 - [monitoring and logging](#monitoring-and-logging)
 - [dns](#dns)
 - [traefik](#traefik)
+- [case studies](#case-studies)
 
 ## aws
 
@@ -33,6 +34,7 @@ table of contents
 - [bug - aws eks only too many pods error ](https://stackoverflow.com/questions/64965832/aws-eks-only-2-pod-can-be-launched-too-many-pods-error/64972286#64972286)
 - [aws eks nodes not recreated when template changes - terraform module](https://github.com/terraform-aws-modules/terraform-aws-eks/blob/master/docs/faq.md#why-are-nodes-not-recreated-when-the-launch_configurationlaunch_template-is-recreated)
 - [using the cluster auto scaler on aws](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md)
+- [ips per nic per instance type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI)
 
 ## terraform
 
@@ -128,6 +130,10 @@ table of contents
   git push
   ```
 
+- outputs the images of all deployments in the Namespace
+
+  `kubectl get deploy -o wide | awk '{$1,$7}' | column -t`
+
 #### links
 
 - [github container registry](https://docs.github.com/en/packages/guides/about-github-container-registry)
@@ -136,6 +142,8 @@ table of contents
 - [event filtering - github workflows](https://github.blog/changelog/2019-09-30-github-actions-event-filtering-updates/)
 - [build matrix - managing complex workflows](https://docs.github.com/en/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)
 - [argocd workflow w/ kustomize & gh actions](https://faun.pub/how-to-build-a-gitops-workflow-with-argocd-kustomize-and-github-actions-f919e7443295)
+
+- [git flow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 
 ## kubernetes
 
@@ -187,6 +195,10 @@ table of contents
 
   `kubectl diff -f app.yml`
 
+- cause all pods in a deployment to restart
+
+  `kubectl restart rollback`
+
 #### links
 
 - [kubectl cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
@@ -219,3 +231,11 @@ table of contents
 - [kubernetes and let's encrypt guide](https://doc.traefik.io/traefik/user-guides/crd-acme/)
 - [traefik and helm](https://github.com/traefik/traefik-helm-chart#installing)
 - [advanced api routing in eks with traefik](https://revolgy.com/blog/advanced-api-routing-in-eks-with-traefik-aws-loadbalancer-controller-and-external-dns/)
+
+## case studies
+
+### references
+
+#### links
+
+- [intuit acquired applatix the startup behind argo](https://www.cncf.io/case-studies/intuit/)
