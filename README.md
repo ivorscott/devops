@@ -187,7 +187,7 @@ table of contents
 
 - get cluster roles and role bindings
 
-  `kubectl get clusteroles`
+  `kubectl get clusterroles`
 
   `kubectl get clusterolebindings`
 
