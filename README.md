@@ -189,7 +189,7 @@ table of contents
 
   `kubectl get clusterroles`
 
-  `kubectl get clusterolebindings`
+  `kubectl get clusterrolebindings`
 
 - see changes made to yaml file
 
